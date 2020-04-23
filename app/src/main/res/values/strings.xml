@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">MiluAnd01</string>
+
+    <string name="chkC01A">A/a</string>
+    <string name="chkC01B">B/b</string>
+
 </resources>
