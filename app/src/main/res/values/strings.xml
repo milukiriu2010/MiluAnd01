@@ -1,6 +1,18 @@
 <resources>
 
+    <!-- C01:CheckBox -->
     <string name="chkC01A">A/a</string>
     <string name="chkC01B">B/b</string>
+
+    <!-- C02:RadioBottuon -->
+    <string name="rbC02A">A</string>
+    <string name="rbC02B">B</string>
+
+    <!-- Menu for C0X -->
+    <string name="itemC01">C01:CheckBox</string>
+    <string name="itemC02">C02:RadioButton</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.fragment_c01.*
 
 import milu.kiriu2010.miluand01.R
 
+// ---------------------------------------------
+// チェックボックスのON/OFFサンプル
+// ---------------------------------------------
 class C01Fragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,10 +25,38 @@ class C01Fragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_c01, container, false)
         Log.d(this.javaClass.simpleName,"ptn1")
         return view
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // テキストAのデフォルト値
+        tvC01A.text = "a"
+        // チェックボックスAをクリック
+        chkC01A.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                tvC01A.text = "A"
+            }
+            else {
+                tvC01A.text = "a"
+            }
+        }
+
+        // テキストBのデフォルト値
+        tvC01B.text = "B"
+        // チェックボックスBをクリック
+        chkC01B.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                tvC01B.text = "B"
+            }
+            else {
+                tvC01B.text = "b"
+            }
+        }
+
     }
 
     companion object {
