@@ -15,4 +15,14 @@
         android:text="C0X"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnC1X"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="C1X"
+        app:layout_constraintBottom_toBottomOf="@+id/btnC0X"
+        app:layout_constraintStart_toEndOf="@+id/btnC0X"
+        app:layout_constraintTop_toTopOf="@+id/btnC0X" />
 </androidx.constraintlayout.widget.ConstraintLayout>

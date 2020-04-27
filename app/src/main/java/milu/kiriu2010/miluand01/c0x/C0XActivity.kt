@@ -35,7 +35,7 @@ class C0XActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.d(javaClass.simpleName,"itemId:{${item.itemId}}")
         Log.d(javaClass.simpleName,"C01:{${R.id.itemC01}}")
-        Log.d(javaClass.simpleName,"C01:{${R.id.itemC02}}")
+        Log.d(javaClass.simpleName,"C02:{${R.id.itemC02}}")
         return when (item.itemId) {
             // 前画面に戻る
             android.R.id.home -> {
@@ -56,6 +56,7 @@ class C0XActivity : AppCompatActivity() {
         }
     }
 
+    // 表示するフラグメントを切り替える
     private fun changeFragment(tag: String) {
         val fragment = when (tag) {
             "c01" -> C01Fragment.newInstance()
