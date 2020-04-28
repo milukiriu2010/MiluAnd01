@@ -11,10 +11,19 @@ import kotlinx.android.synthetic.main.adapter_c11.view.*
 import milu.kiriu2010.entity.team.TeamAbs
 import milu.kiriu2010.miluand01.R
 
+// -----------------------------------
+// チーム情報を表示するアダプタ
+// -----------------------------------
+// 以下を表示
+// ・ロゴ
+// ・チーム名
+// -----------------------------------
 class C11Adapter(
     context: Context,
     // チーム一覧
-    private val teamLst: MutableList<TeamAbs> = mutableListOf()
+    private val teamLst: MutableList<TeamAbs> = mutableListOf(),
+    // チーム情報をクリック時に呼び出されるコールバック
+    private val onTeamClicked: (TeamAbs) -> Unit
 ): RecyclerView.Adapter<C11Adapter.C11ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
@@ -22,6 +31,14 @@ class C11Adapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C11ViewHolder {
         val view = inflater.inflate(R.layout.adapter_c11, parent, false)
         val viewHolder = C11ViewHolder(view)
+
+        // チーム情報をクリックしたときに呼び出されるコールバック
+        view.setOnClickListener {
+            val pos = viewHolder.adapterPosition
+            val team = teamLst[pos]
+            onTeamClicked(team)
+        }
+
         return viewHolder
     }
 

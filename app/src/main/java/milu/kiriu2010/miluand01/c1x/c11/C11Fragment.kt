@@ -1,10 +1,12 @@
 package milu.kiriu2010.miluand01.c1x.c11
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import milu.kiriu2010.entity.team.TeamAbs
@@ -42,7 +44,12 @@ class C11Fragment : Fragment() {
 
         // チーム情報を表示するためのアダプタ
         context?.let {
-            val adapter = C11Adapter(it, createData())
+            val adapter = C11Adapter(it, createData()) {
+                // チーム情報をクリック時に呼び出されるコールバック
+
+                val toast = Toast.makeText(context,it.name,Toast.LENGTH_SHORT)
+                toast.show()
+            }
             rvC11.adapter = adapter
         }
 
