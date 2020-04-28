@@ -13,4 +13,5 @@ interface TeamAbs {
     var name: String
     var playerLst: List<String>
     var yearPosMap: Map<Int,Int>
+    var logo: Int
 }

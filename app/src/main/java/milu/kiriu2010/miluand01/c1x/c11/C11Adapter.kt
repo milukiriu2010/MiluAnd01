@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.adapter_c11.view.*
@@ -21,7 +22,6 @@ class C11Adapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C11ViewHolder {
         val view = inflater.inflate(R.layout.adapter_c11, parent, false)
         val viewHolder = C11ViewHolder(view)
-
         return viewHolder
     }
 
@@ -30,13 +30,13 @@ class C11Adapter(
     // ビューホルダーにチーム情報を紐づける
     override fun onBindViewHolder(holder: C11ViewHolder, position: Int) {
         val team = teamLst[position]
-        holder.tvC11Type.text = team.type
+        holder.ivC11Logo.setImageResource(team.logo)
         holder.tvC11Name.text = team.name
     }
 
     // チーム情報を表示するビューホルダー
     class C11ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val tvC11Type = view.findViewById<TextView>(R.id.tvC11Type)
+        val ivC11Logo = view.findViewById<ImageView>(R.id.ivC11Logo)
         val tvC11Name = view.findViewById<TextView>(R.id.tvC11Name)
     }
 }
