@@ -1,7 +1,6 @@
 package milu.kiriu2010.miluand01.c1x.c11
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import milu.kiriu2010.entity.team.TeamAbs
-import milu.kiriu2010.entity.team.TeamBaseBall
-import milu.kiriu2010.entity.team.TeamSoccer
+import milu.kiriu2010.entity.team0.Team0Abs
+import milu.kiriu2010.entity.team0.Team0BaseBall
+import milu.kiriu2010.entity.team0.Team0Soccer
 
 import milu.kiriu2010.miluand01.R
 
@@ -57,15 +56,15 @@ class C11Fragment : Fragment() {
     }
 
     // チーム一覧を生成
-    private fun createData(): MutableList<TeamAbs> {
-        val teamLst = mutableListOf<TeamAbs>()
+    private fun createData(): MutableList<Team0Abs> {
+        val teamLst = mutableListOf<Team0Abs>()
 
         // チーム一覧:野球
-        val teamBaseBalls = TeamBaseBall.createLst()
+        val teamBaseBalls = Team0BaseBall.createLst()
         teamLst += teamBaseBalls
 
         // チーム一覧:サッカー
-        val teamSoccers = TeamSoccer.createLst()
+        val teamSoccers = Team0Soccer.createLst()
         teamLst += teamSoccers
 
         return teamLst

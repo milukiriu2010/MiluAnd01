@@ -1,4 +1,4 @@
-package milu.kiriu2010.entity.team
+package milu.kiriu2010.entity.team0
 
 // --------------------------------------
 // チームのインターフェース
@@ -8,7 +8,7 @@ package milu.kiriu2010.entity.team
 // --------------------------------------
 // https://blog.applibot.co.jp/2018/03/22/inheritance-for-dataclass-kotlin/
 // --------------------------------------
-interface TeamAbs {
+interface Team0Abs {
     var type: String
     var name: String
     var playerLst: List<String>

@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.adapter_c11.view.*
-import milu.kiriu2010.entity.team.TeamAbs
+import milu.kiriu2010.entity.team0.Team0Abs
 import milu.kiriu2010.miluand01.R
 
 // -----------------------------------
@@ -21,9 +20,9 @@ import milu.kiriu2010.miluand01.R
 class C11Adapter(
     context: Context,
     // チーム一覧
-    private val teamLst: MutableList<TeamAbs> = mutableListOf(),
+    private val teamLst: MutableList<Team0Abs> = mutableListOf(),
     // チーム情報をクリック時に呼び出されるコールバック
-    private val onTeamClicked: (TeamAbs) -> Unit
+    private val onTeamClicked: (Team0Abs) -> Unit
 ): RecyclerView.Adapter<C11Adapter.C11ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
