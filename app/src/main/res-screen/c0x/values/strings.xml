@@ -9,7 +9,9 @@
     <string name="rbC02B">B</string>
 
     <!-- Menu for C0X -->
-    <string name="itemC01">C01:CheckBox</string>
+    <string name="itemC01A">C01:CheckBox:No ViewModel</string>
+    <string name="itemC01B">C01:CheckBox:ViewModel</string>
+    <string name="itemC01C">C01:CheckBox:LiveData</string>
     <string name="itemC02">C02:RadioButton</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

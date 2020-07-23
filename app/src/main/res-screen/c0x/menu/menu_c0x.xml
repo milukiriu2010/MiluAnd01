@@ -5,6 +5,12 @@
         android:id="@+id/itemC02"
         android:title="@string/itemC02" />
     <item
-        android:id="@+id/itemC01"
-        android:title="@string/itemC01" />
+        android:id="@+id/itemC01C"
+        android:title="@string/itemC01C" />
+    <item
+        android:id="@+id/itemC01B"
+        android:title="@string/itemC01B" />
+    <item
+        android:id="@+id/itemC01A"
+        android:title="@string/itemC01A" />
 </menu>

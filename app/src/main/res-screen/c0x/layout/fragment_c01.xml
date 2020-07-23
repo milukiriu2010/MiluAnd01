@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".c0x.c01.C01Fragment">
+    android:background="@android:color/background_light"
+    tools:context=".c0x.c01.C01BFragment">
 
     <TextView
         android:id="@+id/tvC01A"

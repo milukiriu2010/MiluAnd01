@@ -1,19 +1,26 @@
 package milu.kiriu2010.miluand01.c0x.c01
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_c01.*
+import android.widget.CheckBox
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProviders
 
 import milu.kiriu2010.miluand01.R
 
 // ---------------------------------------------
 // チェックボックスのON/OFFサンプル
 // ---------------------------------------------
-class C01Fragment : Fragment() {
+// ViewModelを使う
+// ---------------------------------------------
+class C01BFragment : Fragment() {
+
+    private val viewModel: C01BViewModel by lazy {
+        ViewModelProviders.of(this).get(C01BViewModel::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,43 +33,45 @@ class C01Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_c01, container, false)
-        Log.d(this.javaClass.simpleName,"ptn1")
-        return view
-    }
-
-    override fun onStart() {
-        super.onStart()
+        activity?.setTitle(javaClass.simpleName)
 
         // テキストAのデフォルト値
-        tvC01A.text = "a"
+        val tvC01A = view.findViewById<TextView>(R.id.tvC01A)
+        tvC01A.text = viewModel.a
         // チェックボックスAをクリック
+        val chkC01A = view.findViewById<CheckBox>(R.id.chkC01A)
         chkC01A.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                tvC01A.text = "A"
+                viewModel.a = "A"
             }
             else {
-                tvC01A.text = "a"
+                viewModel.a = "a"
             }
+            tvC01A.text = viewModel.a
         }
 
         // テキストBのデフォルト値
-        tvC01B.text = "B"
+        val tvC01B = view.findViewById<TextView>(R.id.tvC01B)
+        tvC01B.text = viewModel.b
         // チェックボックスBをクリック
+        val chkC01B = view.findViewById<CheckBox>(R.id.chkC01B)
         chkC01B.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                tvC01B.text = "B"
+                viewModel.b = "B"
             }
             else {
-                tvC01B.text = "b"
+                viewModel.b = "b"
             }
+            tvC01B.text = viewModel.b
         }
 
+        return view
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            C01Fragment().apply {
+            C01BFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
