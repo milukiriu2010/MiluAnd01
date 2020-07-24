@@ -3,14 +3,12 @@ package milu.kiriu2010.miluand01.c1x.c11
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.adapter_c11.view.*
 import milu.kiriu2010.entity.team0.Team0Abs
 import milu.kiriu2010.miluand01.R
 
@@ -21,14 +19,14 @@ import milu.kiriu2010.miluand01.R
 // ・ロゴ
 // ・チーム名
 // -----------------------------------
-class C11Adapter(
+class C11AAdapter(
     context: Context,
     private val onC11StartDrag: OnC11StartDrag,
     // チーム一覧
     private val teamLst: MutableList<Team0Abs> = mutableListOf(),
     // チーム情報をクリック時に呼び出されるコールバック
     private val onTeamClicked: (Team0Abs) -> Unit
-): RecyclerView.Adapter<C11Adapter.C11ViewHolder>() {
+): RecyclerView.Adapter<C11AAdapter.C11ViewHolder>() {
 
     private val inflater = LayoutInflater.from(context)
 
@@ -38,7 +36,7 @@ class C11Adapter(
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C11ViewHolder {
-        val view = inflater.inflate(R.layout.adapter_c11, parent, false)
+        val view = inflater.inflate(R.layout.adapter_c11_a, parent, false)
         val viewHolder = C11ViewHolder(view)
 
         // チーム情報をクリックしたときに呼び出されるコールバック

@@ -1,5 +1,7 @@
 package milu.kiriu2010.entity.team0
 
+import android.os.Parcelable
+
 // --------------------------------------
 // チームのインターフェース
 // --------------------------------------
@@ -8,10 +10,10 @@ package milu.kiriu2010.entity.team0
 // --------------------------------------
 // https://blog.applibot.co.jp/2018/03/22/inheritance-for-dataclass-kotlin/
 // --------------------------------------
-interface Team0Abs {
+interface Team0Abs : Parcelable {
     var type: String
     var name: String
-    var playerLst: List<String>
+    var playerLst: List<Player>
     var yearPosMap: Map<Int,Int>
     var logo: Int
 }

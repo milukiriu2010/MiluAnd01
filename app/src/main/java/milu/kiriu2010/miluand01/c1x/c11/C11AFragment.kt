@@ -1,5 +1,6 @@
 package milu.kiriu2010.miluand01.c1x.c11
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,12 +20,14 @@ import milu.kiriu2010.miluand01.R
 // -----------------------------------
 // チーム一覧を表示するフラグメント
 // -----------------------------------
-class C11Fragment : Fragment(),
-    C11Adapter.OnC11StartDrag {
-
+class C11AFragment : Fragment(),
+    C11AAdapter.OnC11StartDrag {
 
     // チーム一覧を表示するリサイクラビュー
     private lateinit var rvC11: RecyclerView
+
+    // チームクリック時のリスナー
+    private var listner: C11TeamListner? = null
 
     // ロングタッチで移動できるようにするためのおまじない
     // https://medium.com/@yfujiki/drag-and-reorder-recyclerview-items-in-a-user-friendly-manner-1282335141e9
@@ -34,13 +37,13 @@ class C11Fragment : Fragment(),
         //    more organic dragging than just specifying UP and DOWN.
         val simpleItemTouchCallback =
             object: ItemTouchHelper.SimpleCallback(UP or DOWN or START or END,
-                0) {
+                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or ItemTouchHelper.DOWN) {
                 override fun onMove(
                     recyclerView: RecyclerView,
                     viewHolder: RecyclerView.ViewHolder,
                     target: RecyclerView.ViewHolder
                 ): Boolean {
-                    val adapter = recyclerView.adapter as C11Adapter
+                    val adapter = recyclerView.adapter as C11AAdapter
                     val from = viewHolder.adapterPosition
                     val to = target.adapterPosition
                     // 2. Update the backing model. Custom implementation in
@@ -57,7 +60,7 @@ class C11Fragment : Fragment(),
                     // 4. Code block for horizontal swipe.
                     //    ItemTouchHelper handles horizontal swipe as well, but
                     //    it is not relevant with reordering. Ignoring here.
-                    val adapter = rvC11.adapter as C11Adapter
+                    val adapter = rvC11.adapter as C11AAdapter
                     adapter.deleteItem(viewHolder.adapterPosition)
                 }
 
@@ -97,7 +100,7 @@ class C11Fragment : Fragment(),
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_c11, container, false)
+        val view = inflater.inflate(R.layout.fragment_c11_a, container, false)
 
         // チーム一覧を表示するリサイクラビュー
         rvC11 = view.findViewById(R.id.rvC11)
@@ -107,11 +110,10 @@ class C11Fragment : Fragment(),
 
         // チーム情報を表示するためのアダプタ
         context?.let {
-            val adapter = C11Adapter(it, this, createData()) {
+            val adapter = C11AAdapter(it, this, createData()) {
                 // チーム情報をクリック時に呼び出されるコールバック
-
-                val toast = Toast.makeText(context,it.name,Toast.LENGTH_SHORT)
-                toast.show()
+                //Toast.makeText(context,it.name,Toast.LENGTH_SHORT).show()
+                listner?.onTeamSelected(it)
             }
             rvC11.adapter = adapter
         }
@@ -120,6 +122,18 @@ class C11Fragment : Fragment(),
         itemTouchHelper.attachToRecyclerView(rvC11)
 
         return view
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if ( context is C11TeamListner ) {
+            listner = context
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listner = null
     }
 
     // チーム一覧を生成
@@ -145,7 +159,7 @@ class C11Fragment : Fragment(),
     companion object {
         @JvmStatic
         fun newInstance() =
-            C11Fragment().apply {
+            C11AFragment().apply {
                 arguments = Bundle().apply {
                 }
             }
