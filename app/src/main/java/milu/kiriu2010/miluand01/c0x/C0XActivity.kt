@@ -6,11 +6,11 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import milu.kiriu2010.miluand01.R
 import milu.kiriu2010.miluand01.c0x.c01.C01AFragment
 import milu.kiriu2010.miluand01.c0x.c01.C01BFragment
 import milu.kiriu2010.miluand01.c0x.c01.C01CFragment
+import milu.kiriu2010.miluand01.c0x.c01.C01DFragment
 import milu.kiriu2010.miluand01.c0x.c02.C02Fragment
 
 class C0XActivity : AppCompatActivity() {
@@ -26,8 +26,8 @@ class C0XActivity : AppCompatActivity() {
 
         if ( savedInstanceState != null ) {
             val frgName = savedInstanceState.getString(FRG)
-            val frg = supportFragmentManager.findFragmentByTag(frgName)
-            frg?.let {
+            val tag = supportFragmentManager.findFragmentByTag(frgName)
+            tag?.let {
                 supportFragmentManager.beginTransaction()
                     .show(it)
                     .commit()
@@ -35,7 +35,7 @@ class C0XActivity : AppCompatActivity() {
         }
         else {
             // デフォルトのフラグメントを配置
-            changeFragment(C01CFragment.newInstance())
+            changeFragment(C01DFragment.newInstance())
         }
 
         // アクションバーに戻るボタンを設ける
@@ -85,6 +85,11 @@ class C0XActivity : AppCompatActivity() {
                 changeFragment(C01CFragment.newInstance())
                 true
             }
+            // C01:CheckBox:DataBinding
+            R.id.itemC01D -> {
+                changeFragment(C01DFragment.newInstance())
+                true
+            }
             // C02:RadioButton
             R.id.itemC02 -> {
                 changeFragment(C02Fragment.newInstance())
@@ -99,15 +104,15 @@ class C0XActivity : AppCompatActivity() {
         // 現在表示しているフラグメントをスタックから外す
         //supportFragmentManager.popBackStack()
         // 選択したフラグメントを表示する
-        val frg = supportFragmentManager.findFragmentByTag(fragment.javaClass.simpleName)
-        if ( frg == null ) {
+        val tag = supportFragmentManager.findFragmentByTag(fragment.javaClass.simpleName)
+        if ( tag == null ) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.flC0X, fragment, fragment.javaClass.simpleName)
                 .commit()
         }
         else {
             supportFragmentManager.beginTransaction()
-                .show(frg)
+                .show(tag)
                 .commit()
         }
     }

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
-        android:id="@+id/itemC02"
-        android:title="@string/itemC02" />
-    <item
-        android:id="@+id/itemC01C"
-        android:title="@string/itemC01C" />
+        android:id="@+id/itemC01A"
+        android:title="@string/itemC01A" />
     <item
         android:id="@+id/itemC01B"
         android:title="@string/itemC01B" />
     <item
-        android:id="@+id/itemC01A"
-        android:title="@string/itemC01A" />
+        android:id="@+id/itemC01C"
+        android:title="@string/itemC01C" />
+    <item
+        android:id="@+id/itemC01D"
+        android:title="@string/itemC01D" />
+    <item
+        android:id="@+id/itemC02"
+        android:title="@string/itemC02" />
 </menu>

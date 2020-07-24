@@ -12,6 +12,7 @@
     <string name="itemC01A">C01:CheckBox:No ViewModel</string>
     <string name="itemC01B">C01:CheckBox:ViewModel</string>
     <string name="itemC01C">C01:CheckBox:LiveData</string>
+    <string name="itemC01D">C01:CheckBox:DataBinding</string>
     <string name="itemC02">C02:RadioButton</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
