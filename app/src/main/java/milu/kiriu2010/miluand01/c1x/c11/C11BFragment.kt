@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import milu.kiriu2010.entity.team0.Team0Abs
 import milu.kiriu2010.miluand01.R
 
@@ -35,6 +36,9 @@ class C11BFragment : Fragment() {
         // チーム名
         val ivC11B_NAME = view.findViewById<TextView>(R.id.tvC11B_NAME)
         ivC11B_NAME.text = teamAbs.name
+
+        // 選手一覧
+        val rvC11_PLAYERS = view.findViewById<RecyclerView>(R.id.rvC11B_PLAYERS)
 
         return view
     }
