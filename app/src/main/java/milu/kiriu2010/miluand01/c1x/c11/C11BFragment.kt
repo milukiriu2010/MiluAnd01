@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import milu.kiriu2010.entity.team0.Team0Abs
 import milu.kiriu2010.miluand01.R
@@ -39,6 +40,13 @@ class C11BFragment : Fragment() {
 
         // 選手一覧
         val rvC11_PLAYERS = view.findViewById<RecyclerView>(R.id.rvC11B_PLAYERS)
+        rvC11_PLAYERS.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
+        rvC11_PLAYERS.adapter = C11BPlayerAdapter(activity!!.applicationContext,teamAbs.playerLst.toMutableList())
+
+        // 年度別順位一覧
+        val rvC11_YP = view.findViewById<RecyclerView>(R.id.rvC11B_YP)
+        rvC11_YP.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
+        rvC11_YP.adapter = C11BYPAdapter(activity!!.applicationContext,teamAbs.yearPosMap.toMutableMap())
 
         return view
     }

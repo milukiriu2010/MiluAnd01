@@ -2,6 +2,8 @@ package milu.kiriu2010.miluand01.c1x
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import milu.kiriu2010.entity.team0.Team0Abs
 import milu.kiriu2010.miluand01.R
@@ -26,15 +28,37 @@ class C1XActivity : AppCompatActivity(), C11TeamListner {
         }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onBackPressed() {
+        Log.d(javaClass.simpleName,"backStackEntryCount:${supportFragmentManager.backStackEntryCount}")
+        if ( supportFragmentManager.backStackEntryCount > 1 ) {
+            supportFragmentManager.popBackStack()
+        }
+        else {
+            supportFragmentManager.popBackStack()
+            super.onBackPressed()
+        }
+    }
+
     // 表示するフラグメントを切り替える
     private fun changeFragment(fragment: Fragment) {
         // 現在表示しているフラグメントをスタックから外す
-        supportFragmentManager.popBackStack()
+        //supportFragmentManager.popBackStack()
         // 選択したフラグメントを表示する
         val tag = fragment.javaClass.simpleName
         if ( supportFragmentManager.findFragmentByTag(tag) == null ) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.flC1X, fragment, tag)
+                .add(R.id.flC1X, fragment, tag)
+                .addToBackStack(tag)
                 .commit()
         }
     }

@@ -13,6 +13,7 @@ import milu.kiriu2010.miluand01.R
 import java.text.SimpleDateFormat
 import java.util.*
 
+// 選手一覧表示用アダプタ
 class C11BPlayerAdapter(
     context: Context,
     private val players: MutableList<Player> = mutableListOf()
@@ -32,7 +33,7 @@ class C11BPlayerAdapter(
     override fun onBindViewHolder(holder: C11BPlayerViewHolder, position: Int) {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val player = players[position]
-        holder.tvC11B_PNAME.text = player.lname + " " + player.lname
+        holder.tvC11B_PNAME.text = player.lname + " " + player.fname
         holder.tvC11B_PBDAY.text = dateFormat.format(player.bday)
     }
 
