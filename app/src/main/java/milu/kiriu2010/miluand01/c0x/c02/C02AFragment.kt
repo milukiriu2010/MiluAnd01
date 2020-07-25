@@ -5,11 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_c02.*
+import kotlinx.android.synthetic.main.fragment_c02a.*
 
 import milu.kiriu2010.miluand01.R
 
-class C02Fragment : Fragment() {
+// ---------------------------------------------
+// ラジオボタンのON/OFFサンプル
+// ---------------------------------------------
+// ViewModelを使わない例
+// ---------------------------------------------
+class C02AFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +27,7 @@ class C02Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_c02, container, false)
+        val view = inflater.inflate(R.layout.fragment_c02a, container, false)
         activity?.setTitle(javaClass.simpleName)
         return view
     }
@@ -31,12 +36,12 @@ class C02Fragment : Fragment() {
         super.onStart()
 
         // テキスト
-        tvC02.text = "A"
+        tvC02A.text = "A"
         // ラジオボタンをクリック
-        rgC02.setOnCheckedChangeListener { _, checkedId ->
+        rgC02A.setOnCheckedChangeListener { _, checkedId ->
             // クリックしたアイテムによってテキストを設定
-            tvC02.text = when ( checkedId ) {
-                R.id.rbC02A -> "A"
+            tvC02A.text = when ( checkedId ) {
+                R.id.rbC02AA -> "A"
                 else -> "B"
             }
         }
@@ -45,7 +50,7 @@ class C02Fragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            C02Fragment().apply {
+            C02AFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

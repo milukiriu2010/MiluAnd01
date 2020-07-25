@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".c0x.c02.C02Fragment">
+    tools:context=".c0x.c02.C02AFragment">
 
     <TextView
-        android:id="@+id/tvC02"
+        android:id="@+id/tvC02A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -18,24 +18,24 @@
         tools:text="A" />
 
     <RadioGroup
-        android:id="@+id/rgC02"
+        android:id="@+id/rgC02A"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvC02">
+        app:layout_constraintTop_toBottomOf="@+id/tvC02A">
 
         <RadioButton
-            android:id="@+id/rbC02A"
+            android:id="@+id/rbC02AA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/rbC02A" />
 
         <RadioButton
-            android:id="@+id/rbC02B"
+            android:id="@+id/rbC02AB"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:checked="false"

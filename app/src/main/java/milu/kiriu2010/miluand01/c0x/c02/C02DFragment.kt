@@ -1,4 +1,4 @@
-package milu.kiriu2010.miluand01.c0x.c01
+package milu.kiriu2010.miluand01.c0x.c02
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,19 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.fragment_c02a.*
 
 import milu.kiriu2010.miluand01.R
-import milu.kiriu2010.miluand01.databinding.FragmentC01dBinding
+import milu.kiriu2010.miluand01.databinding.FragmentC02dBinding
 
 // ---------------------------------------------
-// チェックボックスのON/OFFサンプル
+// ラジオボタンのON/OFFサンプル
 // ---------------------------------------------
-// DataBindingを使う
+// DataBindingを使った例
 // ---------------------------------------------
-class C01DFragment : Fragment() {
+class C02DFragment : Fragment() {
 
-    private val viewModel: C01DViewModel by lazy {
-        ViewModelProviders.of(this).get(C01DViewModel::class.java)
+    private val viewModel: C02DViewModel by lazy {
+        ViewModelProviders.of(this).get(C02DViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,33 +33,23 @@ class C01DFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        //val view = inflater.inflate(R.layout.fragment_c01d, container, false)
+        // Inflate the layout for this fragment
+        //val view = inflater.inflate(R.layout.fragment_c02d, container, false)
         activity?.setTitle(javaClass.simpleName)
 
         // DataBindingのインスタンスを作成
-        val binding = DataBindingUtil.inflate<FragmentC01dBinding>(inflater,R.layout.fragment_c01d,container,false)
+        val binding = DataBindingUtil.inflate<FragmentC02dBinding>(inflater,R.layout.fragment_c02d,container,false)
         // ViewModelのインスタンスを設定
         binding.viewModel = viewModel
         // ライフサイクル所有者を設定
         binding.lifecycleOwner = this
 
-        // チェックボックスAをクリック
-        binding.chkC01DA.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                viewModel.a.value = "A"
-            }
-            else {
-                viewModel.a.value = "a"
-            }
-        }
-
-        // チェックボックスBをクリック
-        binding.chkC01DB.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                viewModel.b.value = "B"
-            }
-            else {
-                viewModel.b.value = "b"
+        // ラジオボタンをクリック
+        binding.rgC02D.setOnCheckedChangeListener { _, checkedId ->
+            // クリックしたアイテムによってテキストを設定
+            viewModel.data.value = when ( checkedId ) {
+                R.id.rbC02DA -> "A"
+                else -> "B"
             }
         }
 
@@ -68,7 +59,7 @@ class C01DFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() =
-            C01DFragment().apply {
+            C02DFragment().apply {
                 arguments = Bundle().apply {
                 }
             }

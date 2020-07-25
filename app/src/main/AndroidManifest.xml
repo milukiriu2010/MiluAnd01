@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="milu.kiriu2010.miluand01">
 
-    <!-- android:icon="@mipmap/ic_launcher" -->
-    <!-- android:roundIcon="@mipmap/ic_launcher_round" -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_main"
@@ -11,14 +9,18 @@
         android:roundIcon="@drawable/ic_main"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".c0x.C0XActivity" />
-        <activity android:name=".c1x.C1XActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".c0x.C0XActivity" />
+        <activity android:name=".c1x.C1XActivity" />
+        <activity
+            android:name=".c2x.C2XActivity"
+            android:label="@string/title_activity_c2_x">
         </activity>
     </application>
 

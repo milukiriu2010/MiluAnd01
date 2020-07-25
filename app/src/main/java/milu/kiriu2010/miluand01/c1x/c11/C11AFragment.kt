@@ -99,6 +99,8 @@ class C11AFragment : Fragment(),
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        activity?.setTitle(javaClass.simpleName)
+
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_c11_a, container, false)
 

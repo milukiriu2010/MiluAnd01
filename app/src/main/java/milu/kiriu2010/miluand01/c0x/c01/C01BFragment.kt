@@ -32,7 +32,7 @@ class C01BFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_c01, container, false)
+        val view = inflater.inflate(R.layout.fragment_c01a, container, false)
         activity?.setTitle(javaClass.simpleName)
 
         // テキストAのデフォルト値

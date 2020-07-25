@@ -6,6 +6,7 @@ import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
 import milu.kiriu2010.miluand01.c0x.C0XActivity
 import milu.kiriu2010.miluand01.c1x.C1XActivity
+import milu.kiriu2010.miluand01.c2x.C2XActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         // C1Xページへ遷移
         btnC1X.setOnClickListener {
             val intent = Intent(this, C1XActivity::class.java)
+            startActivity(intent)
+        }
+
+        // C2Xページへ遷移
+        btnC2X.setOnClickListener {
+            val intent = Intent(this, C2XActivity::class.java)
             startActivity(intent)
         }
     }

@@ -3,6 +3,7 @@ package milu.kiriu2010.miluand01.c1x
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import milu.kiriu2010.entity.team0.Team0Abs
@@ -10,6 +11,7 @@ import milu.kiriu2010.miluand01.R
 import milu.kiriu2010.miluand01.c1x.c11.C11AFragment
 import milu.kiriu2010.miluand01.c1x.c11.C11BFragment
 import milu.kiriu2010.miluand01.c1x.c11.C11TeamListner
+import milu.kiriu2010.miluand01.c2x.c12.C12AFragment
 
 class C1XActivity : AppCompatActivity(), C11TeamListner {
 
@@ -28,10 +30,26 @@ class C1XActivity : AppCompatActivity(), C11TeamListner {
         }
     }
 
+    // アクションバーにメニューを表示する
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_c1x, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             android.R.id.home -> {
                 onBackPressed()
+                true
+            }
+            // C11:Teams:No ViewModel
+            R.id.itemC11 -> {
+                changeFragment(C11AFragment.newInstance())
+                true
+            }
+            // C12:Teams:DataBinding
+            R.id.itemC12 -> {
+                changeFragment(C12AFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)

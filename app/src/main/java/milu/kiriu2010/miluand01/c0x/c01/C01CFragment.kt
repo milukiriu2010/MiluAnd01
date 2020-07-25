@@ -33,7 +33,7 @@ class C01CFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_c01, container, false)
+        val view = inflater.inflate(R.layout.fragment_c01a, container, false)
         activity?.setTitle(javaClass.simpleName)
 
         // チェックボックスAをクリック

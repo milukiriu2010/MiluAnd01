@@ -11,7 +11,8 @@ import milu.kiriu2010.miluand01.c0x.c01.C01AFragment
 import milu.kiriu2010.miluand01.c0x.c01.C01BFragment
 import milu.kiriu2010.miluand01.c0x.c01.C01CFragment
 import milu.kiriu2010.miluand01.c0x.c01.C01DFragment
-import milu.kiriu2010.miluand01.c0x.c02.C02Fragment
+import milu.kiriu2010.miluand01.c0x.c02.C02AFragment
+import milu.kiriu2010.miluand01.c0x.c02.C02DFragment
 
 class C0XActivity : AppCompatActivity() {
 
@@ -63,7 +64,7 @@ class C0XActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         Log.d(javaClass.simpleName,"itemId:{${item.itemId}}")
         Log.d(javaClass.simpleName,"C01:{${R.id.itemC01A}}")
-        Log.d(javaClass.simpleName,"C02:{${R.id.itemC02}}")
+        Log.d(javaClass.simpleName,"C02:{${R.id.itemC02A}}")
         return when (item.itemId) {
             // 前画面に戻る
             android.R.id.home -> {
@@ -90,9 +91,14 @@ class C0XActivity : AppCompatActivity() {
                 changeFragment(C01DFragment.newInstance())
                 true
             }
-            // C02:RadioButton
-            R.id.itemC02 -> {
-                changeFragment(C02Fragment.newInstance())
+            // C02:RadioButton:No ViewModel
+            R.id.itemC02A -> {
+                changeFragment(C02AFragment.newInstance())
+                true
+            }
+            // C02:RadioButton:Data Binding
+            R.id.itemC02D -> {
+                changeFragment(C02DFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)
