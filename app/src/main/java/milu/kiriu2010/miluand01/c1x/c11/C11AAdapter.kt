@@ -2,6 +2,7 @@ package milu.kiriu2010.miluand01.c1x.c11
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,6 +39,8 @@ class C11AAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): C11ViewHolder {
         val view = inflater.inflate(R.layout.adapter_c11_a, parent, false)
         val viewHolder = C11ViewHolder(view)
+
+        Log.d(javaClass.simpleName,"size=${teamLst.size}")
 
         // チーム情報をクリックしたときに呼び出されるコールバック
         // --------------------------------------------------

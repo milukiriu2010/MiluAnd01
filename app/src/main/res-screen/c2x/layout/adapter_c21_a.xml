@@ -7,38 +7,41 @@
 
     <data>
         <variable
-            name="team"
-            type="milu.kiriu2010.entity.team0.Team0Abs" />
+            name="viewModel"
+            type="milu.kiriu2010.miluand01.c2x.c21.C21ViewModel" />
+        <variable
+            name="position"
+            type="Integer" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/hvC12"
+        android:id="@+id/hvC21"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/ivC12Logo"
+            android:id="@+id/ivC21Logo"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:imageResource="@{team.logo}"
+            app:imageResource="@{viewModel.teams[position].logo}"
             tools:ignore="ContentDescription" />
         <!-- app:srcCompat="@drawable/ic_main" -->
 
         <TextView
-            android:id="@+id/tvC12Name"
+            android:id="@+id/tvC21Name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:textSize="18sp"
-            android:text="@{team.name}"
+            android:text="@{viewModel.teams[position].name}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ivC12Logo"
-            app:layout_constraintTop_toTopOf="@+id/ivC12Logo"
+            app:layout_constraintStart_toEndOf="@+id/ivC21Logo"
+            app:layout_constraintTop_toTopOf="@+id/ivC21Logo"
             tools:text="Tigers" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
