@@ -7,10 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import milu.kiriu2010.miluand01.R
-import milu.kiriu2010.miluand01.c0x.c01.C01AFragment
-import milu.kiriu2010.miluand01.c0x.c01.C01BFragment
-import milu.kiriu2010.miluand01.c0x.c01.C01CFragment
-import milu.kiriu2010.miluand01.c0x.c01.C01DFragment
+import milu.kiriu2010.miluand01.c0x.c01.*
 import milu.kiriu2010.miluand01.c0x.c02.C02AFragment
 import milu.kiriu2010.miluand01.c0x.c02.C02DFragment
 
@@ -89,6 +86,11 @@ class C0XActivity : AppCompatActivity() {
             // C01:CheckBox:DataBinding
             R.id.itemC01D -> {
                 changeFragment(C01DFragment.newInstance())
+                true
+            }
+            // C01:CheckBox:DataBinding2
+            R.id.itemC01E -> {
+                changeFragment(C01EFragment.newInstance())
                 true
             }
             // C02:RadioButton:No ViewModel

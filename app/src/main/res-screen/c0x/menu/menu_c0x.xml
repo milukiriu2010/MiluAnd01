@@ -13,6 +13,9 @@
         android:id="@+id/itemC01D"
         android:title="@string/itemC01D" />
     <item
+        android:id="@+id/itemC01E"
+        android:title="@string/itemC01E" />
+    <item
         android:id="@+id/itemC02A"
         android:title="@string/itemC02A" />
     <item
